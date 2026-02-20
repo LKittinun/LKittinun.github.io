@@ -3,130 +3,325 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Welcome</title>
-  <link href="https://unpkg.com/lucide@latest" rel="stylesheet">
+  <title>Kittinun Leetanaporn</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230f1c38'/><text x='50' y='54' font-family='Arial,sans-serif' font-size='46' font-weight='700' fill='%2393c5fd' text-anchor='middle' dominant-baseline='middle'>KL</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #e3f2fd, #fff);
-      color: #333;
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
+    /* ── Header ── */
     header {
+      background: #0f1c38;
       padding: 4rem 2rem;
-      text-align: center;
-      background: linear-gradient(135deg, #002171, #0d47a1, #1565c0);
-      color: white;
+      border-bottom: 1px solid #1e3a6e;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+    .hero {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
     }
 
-    header p {
-      font-size: 1.25rem;
-      margin-top: 0.5rem;
+    .avatar {
+      flex-shrink: 0;
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: #162447;
+      border: 2px solid #2d5fa8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #93c5fd;
+    }
+
+    .hero-info { flex: 1; }
+
+    .hero-info h1 {
+      font-size: clamp(1.5rem, 3.5vw, 2.1rem);
+      font-weight: 700;
+      color: #f1f5f9;
+      letter-spacing: -0.3px;
+      line-height: 1.1;
+    }
+
+    .hero-role {
+      margin-top: 0.35rem;
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #64748b;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .hero-desc {
+      margin-top: 0.6rem;
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: #94a3b8;
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    .interests {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.28rem 0.75rem;
+      border-radius: 4px;
+      background: #1e3a6e;
+      color: #93c5fd;
+      letter-spacing: 0.02em;
     }
 
     .links {
-      margin-top: 1.5rem;
+      margin-top: 1.25rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
     }
 
     .links a {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      margin: 0.5rem 1rem;
-      padding: 0.5rem 1.25rem;
-      border-radius: 8px;
-      background-color: rgba(255, 255, 255, 0.1);
-      color: white;
+      gap: 0.4rem;
+      padding: 0.45rem 1rem;
+      border-radius: 6px;
+      background: transparent;
+      color: #93c5fd;
       text-decoration: none;
-      font-weight: bold;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      font-size: 0.82rem;
+      font-weight: 500;
+      border: 1px solid #2d5fa8;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
     }
 
     .links a:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
+      background: #1e3a6e;
+      border-color: #4d8fda;
+      color: #bfdbfe;
     }
 
-    .icon {
-      width: 20px;
-      height: 20px;
+    .links a svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+      stroke: currentColor;
+      fill: none;
       stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
+    /* ── Main ── */
     main {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
+      flex: 1;
+      max-width: 860px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 3rem 2rem 2.5rem;
     }
 
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin-bottom: 1.25rem;
+    }
+
+    /* ── Cards ── */
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
     }
 
     .card {
       background: white;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      padding: 1.5rem;
-      text-align: center;
-      transition: transform 0.3s ease;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(15, 28, 56, 0.08);
     }
 
-    .card a {
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .card-icon {
+      flex-shrink: 0;
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke-width: 1.75;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .card-icon.blue  { background: #eff6ff; }
+    .card-icon.blue svg  { stroke: #2563eb; }
+    .card-icon.teal  { background: #f0fdfa; }
+    .card-icon.teal svg  { stroke: #0d9488; }
+
+    .card h2 {
+      font-size: 0.975rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: #0f172a;
+      align-self: center;
+    }
+
+    .card p {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: #64748b;
+      flex: 1;
+      margin-bottom: 1.25rem;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #2563eb;
       text-decoration: none;
-      color: #1976d2;
-      font-weight: bold;
+      transition: gap 0.15s;
     }
 
+    .card-link:hover { gap: 0.6rem; }
+
+    .card-link svg {
+      width: 13px;
+      height: 13px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ── Footer ── */
     footer {
       text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #888;
+      padding: 1.5rem 2rem;
+      font-size: 0.78rem;
+      color: #94a3b8;
+      border-top: 1px solid #e2e8f0;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 580px) {
+      .hero { flex-direction: column; text-align: center; gap: 1.5rem; }
+      .interests, .links { justify-content: center; }
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>Welcome to Pete's homepage</h1>
-    <p>A collection of projects, tools, and thoughts in progress — feel free to look around.</p>
-    <div class="links">
-      <a href="https://scholar.google.com/citations?user=pzrXr54AAAAJ&hl=en" target="_blank">
-        <span class="icon" data-lucide="book-open"></span> Google Scholar
-      </a>
-      <a href="https://www.scopus.com/authid/detail.uri?authorId=57194532818" target="_blank">
-        <span class="icon" data-lucide="search"></span> Scopus
-      </a>
+    <div class="hero">
+      <div class="avatar">KL</div>
+      <div class="hero-info">
+        <h1>Kittinun Leetanaporn</h1>
+        <p class="hero-role">Doctor &amp; Researcher</p>
+        <p class="hero-desc">Personal website for my work in proteomics, bioinformatics, and teaching.</p>
+        <div class="interests">
+          <span class="tag">Proteomics</span>
+          <span class="tag">Mass Spectrometry</span>
+          <span class="tag">Bioinformatics</span>
+          <span class="tag">R Programming</span>
+        </div>
+        <div class="links">
+          <a href="https://scholar.google.com/citations?user=pzrXr54AAAAJ&hl=en" target="_blank">
+            <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            Google Scholar
+          </a>
+          <a href="https://www.scopus.com/authid/detail.uri?authorId=57194532818" target="_blank">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Scopus
+          </a>
+        </div>
+      </div>
     </div>
   </header>
 
   <main>
+    <p class="section-label">Featured content</p>
     <section class="cards">
+
       <div class="card">
-        <h2>A gentle introduction to R for biologists</h2>
-        <p>A little book that introduces biologists to the world of R program (Thai language).</p>
-        <a href="R_intro/docs/index.html">Read a book</a>
+        <div class="card-header">
+          <div class="card-icon blue">
+            <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <h2>A Gentle Introduction to R for Biologists</h2>
+        </div>
+        <p>A little book that introduces biologists to the world of R programming. Written in Thai.</p>
+        <a class="card-link" href="R_intro/docs/index.html">
+          Read the book
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
       </div>
-	  <div class="card">
-        <h2>Proteomics blog</h2>
-        <p>A blog for sharing ideas, experiences, and knowledge in proteomics—whatever I’m exploring, working on, or feel like writing about.</p>
-        <a href="Proteomics/blog/index.html">Visit a blog</a>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon teal">
+            <svg viewBox="0 0 24 24"><path d="M9 3h6"/><path d="M10 3v6l-4 9a1 1 0 0 0 .9 1.45h10.2A1 1 0 0 0 18 18l-4-9V3"/></svg>
+          </div>
+          <h2>Proteomics Blog</h2>
+        </div>
+        <p>Ideas, experiences, and knowledge in proteomics — whatever I'm exploring, working on, or feel like writing about.</p>
+        <a class="card-link" href="Proteomics/blog/index.html">
+          Visit the blog
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
       </div>
+
     </section>
   </main>
 
@@ -134,9 +329,5 @@
     &copy; 2025 Kittinun Leetanaporn. All rights reserved.
   </footer>
 
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-  <script>
-    lucide.createIcons();
-  </script>
 </body>
 </html>

@@ -10,9 +10,8 @@ date: "2025-06-25"
 categories: 
   - Instrument
   - Analysis
-editor_options: 
-  chunk_output_type: console
 ---
+
 
 If you have ever worked with untargeted proteomic results, you would likely encounter the terms **data-dependent acquisition (DDA)** and **data-independent acquisition (DIA)**. Although these two acquisition schemes finally produced (generally) two-dimensional data matrices of peptides (or proteins) and intensities, they relied on fundamentally distinct mechanisms for acquiring the data. To understand how different these two approaches are, we first have to understand the fundamentals of how mass spectrometry captures and analyzes peptide signals.
 
@@ -22,6 +21,7 @@ After peptides are injected into the mass spectrometry and ionized by the ion so
 
 In untargeted proteomic analysis, commonly used mass analyzers usually involve two (or even three) mass analyzers with different functions, with collision chamber for further ion fragmentation. This setup is known as **tandem mass spectrometry (MS/MS)**.
 
+
 ```{mermaid}
 flowchart LR
   A[Ion Source] --- B(Mass Analyzer 1)
@@ -30,6 +30,7 @@ flowchart LR
   D --- E[Detector]
 ```
 
+
 In general, mass analyzer in MS/MS setup include:
 
 -   **Quadrupole:** This mass analyzer functions as the first m/z (mass-to-charge) filter, so we can define the range of the m/z that interests us most.
@@ -37,6 +38,7 @@ In general, mass analyzer in MS/MS setup include:
 -   **Time-of-flight or Orbitrap:** These are high-resolution mass analyzers. Although they have different principles of mass separation, they both share the same goal: to distinguish even minuscule m/z differences between ions with very high precision.
 
 So, basically, data acquisition of peptide ions starts with a quadrupole to filter the m/z that we are interested in. In the case of peptides, these numbers usually range around 400-1800. Then, the filter ions are passed into the high-resolution mass analyzer, which separates the ions in finer detail. Thereafter, all separated ion data are recorded by the detector, which is then processed into the spectrum we see in the software.
+
 
 ```{mermaid}
 flowchart LR
@@ -49,11 +51,13 @@ flowchart LR
 linkStyle 0,3,4 stroke:darkred,stroke-width:2px  
 ```
 
+
 What I recently described is basically **MS1 acquisition** (or full scan/precursor scan). Note that collision chamber is not used here since there is no fragmentation occurs; it will be involved in MS2.
 
 ## Then what about **MS2**?
 
 Well, what we obtain from MS1 is a list of m/z values of all ions present at the moment. This is called **peptide fingerprints**. However, this data is not enough to figure out what these peptides really are, because some peptides have the same m/z even though their sequences are different. This is why we need MS2, where we break down these ions into smaller pieces via a **collision chamber** to analyze their patterns further.
+
 
 ```{mermaid}
 flowchart LR
@@ -65,11 +69,13 @@ flowchart LR
 linkStyle 0,1,2,3 stroke:darkred,stroke-width:2px  
 ```
 
+
 This is where the **difference between DDA and DIA** acquisition kicks in, because these two approaches have clearly distinct patterns to obtain MS2.
 
 ### Data-dependent acquisition
 
 There is a specific time window during which peptides with the same or similar properties elute together as a single peak. This allows mass spectrometry to collect multiple data points as the peak elutes. Mass spectrometry collects multiple rounds of data in one peak. Each round of the scans consists of one MS1 and multiple MS2 scans; this is called a **cycle,** and the time it takes to complete a cycle is called **cycle time**.
+
 
 ```{r MS_acquisition}
 #| fig.cap: "1 cycle = time to complete all defined scan = MS1 to MS1"
@@ -123,20 +129,11 @@ chrom_p <- ggplot(peak_data, aes(x = rt, y = intensity)) +
   shadow_mark()
 
 animate(chrom_p, fps = 4, nframes = 30)
-
-# ggplot(peak_data, aes(x = rt, y = intensity)) +
-#   geom_line(color = "gray30", linewidth = 1) +
-#   scale_color_manual(values = c("MS1" = "blue", "MS2" = "red")) +
-#   scale_shape_manual(values = c("MS1" = 16, "MS2" = 17)) +
-#   labs(title = "MS data acquistion across one peak (5 cycles)",
-#        x = "Retention Time (sec)",
-#        y = "Intensity",
-#        col = "MS", shape = "MS") +
-#   theme_minimal() 
-# ggsave(filename = "chromatogram.png",height = 10.91, width = 15.27, units = "cm")
 ```
 
+
 For DDA, in one cycle, the **top N** most intense data in MS1 (aka precursor ions) will be further fragmented into MS2 (daughter ions). Take a look at the picture below, the 5 most intense spectra in this MS1 are then individually fragmented and analyzed in separate MS2 scans *sequentially* (not simultaneously!), resulting in 5 following MS2 (red triangle in the above picture). This is why it is called "data-dependent"--it depends on the MS1 data. It is a classic data acquisition scheme that has been used since the beginning of the shotgun proteomic era.
+
 
 ```{r dda}
 #| echo: false
@@ -182,11 +179,13 @@ dda_p <- ggplot(spectrum_data, aes(x = mz, y = intensity, col = top_rank)) +
 animate(dda_p, fps = 2.5, nframes = 7, end_pause = 1)
 ```
 
+
 Well, this is a solid method for identifying peptides. Still, there's a catch: the fragmentation tends to favor more abundant precursor ions. In other words, more abundant peptides are more likely to get selected for fragmentation, while less abundant peptides may get overlooked. Therefore, when you see quite a lot of missing data in your final data matrix, there is a good chance it was acquired by DDA. To compensate for this bias, most instruments use a feature called **dynamic exclusion** that prevents repeated fragmentation of the same precursors within a short time window. But that's getting a little bit too technical–we'll talk about it in a future post.
 
 ### Data-independent acquisition
 
 As I stated, DDA has a limitation that it is bias towards more abundant precursors. So why don't we just fragment it all? Well, this is exactly the concept behind DIA. It works by sequentially fragmenting all ions within the defined mass windows.
+
 
 ```{r dia}
 #| echo: false
@@ -247,6 +246,7 @@ dia_p <- ggplot(spectrum_data, aes(x = mz, y = intensity)) +
 animate(dia_p, fps = 2.5, nframes = 13, end_pause = 1)
 ```
 
+
 As you can see in the figure, for this MS1, the next 12 windows will be sequentially fragmented in MS2. In this way, all ions--more or less--get a chance to be fragmented without bias. This makes the fragmentation pattern much more predictable, resulting in more robust, reproducible spectra generation across the run. Accordingly, there will be a lot less missing data events than DDA, especially in low-abundant peptides. There is a lot of variation in window fragmentation patterns, such as staggered windows and variable-width windows that are designed to optimize coverage and improve sensitivity, depending on the instruments.
 
 Terrific! So, should we entirely abandon DDA and move to DIA? Not exactly, for now. While it results in much more reproducible spectra, the spectra themselves are much more complicated. This is because there are multiple precursors fragmented together within one window, leading to **chimeric spectra**. DDA typically isolates and fragments individual precursors within narrow windows, making chimeric events much less likely. Therefore, identifying peptides from these spectra often requires **library**--a pre-built reference of known peptide fragmentation pattern--to serve as a spectrum blueprint to match spectra with overlapping fragmented ions.
@@ -270,3 +270,4 @@ Absolutely. While currently DIA is the go-to for general label-free workflow, ce
 ## Conclusion
 
 So, while DIA is rapidly evolving and can replace some DDA workflows, DDA still has a place, especially when you need to do experiments that require much cleaner spectra, such as PTM or de novo sequencing. Choosing the right approach depends on your specific research questions and analytic goals. But who knows what it will be in the future? With continuous improvements in mass spectrometry hardware and software, the line between DDA and DIA will only grow more flexible.
+
