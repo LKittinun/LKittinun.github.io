@@ -4,3 +4,6 @@
 [submodule "Proteomics"]
 	path = Proteomics
 	url = https://github.com/LKittinun/Proteomics.git
+[submodule "HALP_survival_model"]
+	path = HALP_survival_model
+	url = https://github.com/LKittinun/HALP_survival_model.git
