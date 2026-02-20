@@ -1,0 +1,6 @@
+[submodule "R_intro"]
+	path = R_intro
+	url = https://github.com/LKittinun/R-intro.git
+[submodule "Proteomics"]
+	path = Proteomics
+	url = https://github.com/LKittinun/Proteomics.git
