@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git subtree split:*)",
+      "Bash(git push:*)",
+      "Bash(git rm:*)",
+      "Bash(git commit:*)",
+      "Bash(git submodule add:*)",
+      "Bash(cmd /c \"rd /s /q \"\"D:\\\\SynologyDrive\\\\R Workspace\\\\Teaching\\\\R_intro\"\"\")",
+      "Bash(powershell -Command:*)",
+      "Bash(powershell.exe -Command \"Remove-Item -Path ''D:\\\\SynologyDrive\\\\R Workspace\\\\Teaching\\\\R_intro'' -Force -Recurse -ErrorAction SilentlyContinue; Write-Output ''done''\")",
+      "Bash(test:*)",
+      "Bash(curl:*)",
+      "Bash(git ls-remote:*)",
+      "Bash(git remote set-url:*)",
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(git add:*)",
+      "Bash(Rscript:*)",
+      "Bash(python3 -c \" import json with open\\(''D:/SynologyDrive/R Workspace/Teaching/HALP_survival_model/docs/index.html''\\) as f: content = f.read\\(\\) # find the app definition start = content.find\\(''runExportedApp''\\) print\\(content[start:start+500]\\) \")",
+      "Bash(ls:*)",
+      "Bash(grep:*)",
+      "Bash(git -C \"D:/SynologyDrive/R Workspace/Teaching\" remote -v)"
+    ]
+  }
+}
