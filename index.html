@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kittinun Leetanaporn — Doctor &amp; Researcher in Proteomics &amp; Bioinformatics</title>
-  <meta name="description" content="Personal website of Kittinun Leetanaporn, MD — researcher in proteomics, mass spectrometry, and bioinformatics. Includes an R programming textbook in Thai, a proteomics blog, and a clinical survival prediction tool.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kittinun Leetanaporn - Doctor &amp; Researcher in Proteomics &amp; Bioinformatics</title>
+  <meta name="description"
+    content="Personal website of Kittinun Leetanaporn, MD - researcher in proteomics, mass spectrometry, and bioinformatics. Includes an R programming textbook in Thai, a proteomics blog, and a clinical survival prediction tool.">
   <meta name="author" content="Kittinun Leetanaporn">
-  <meta name="keywords" content="proteomics, mass spectrometry, bioinformatics, R programming, survival analysis, cervical cancer, HALP score, Bioconductor">
+  <meta name="keywords"
+    content="proteomics, mass spectrometry, bioinformatics, R programming, survival analysis, cervical cancer, HALP score, Bioconductor">
   <link rel="canonical" href="https://lkittinun.github.io/">
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lkittinun.github.io/">
-  <meta property="og:title" content="Kittinun Leetanaporn — Doctor &amp; Researcher">
-  <meta property="og:description" content="Researcher in proteomics, mass spectrometry, and bioinformatics. R programming textbook in Thai, proteomics blog, and a HALP survival model for advanced cervical cancer.">
+  <meta property="og:title" content="Kittinun Leetanaporn - Doctor &amp; Researcher">
+  <meta property="og:description"
+    content="Researcher in proteomics, mass spectrometry, and bioinformatics. R programming textbook in Thai, proteomics blog, and a HALP survival model for advanced cervical cancer.">
   <meta property="og:locale" content="en_US">
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Kittinun Leetanaporn — Doctor &amp; Researcher">
-  <meta name="twitter:description" content="Researcher in proteomics, mass spectrometry, and bioinformatics. R programming textbook in Thai, proteomics blog, and a HALP survival model for advanced cervical cancer.">
+  <meta name="twitter:title" content="Kittinun Leetanaporn - Doctor &amp; Researcher">
+  <meta name="twitter:description"
+    content="Researcher in proteomics, mass spectrometry, and bioinformatics. R programming textbook in Thai, proteomics blog, and a HALP survival model for advanced cervical cancer.">
 
-  <!-- JSON-LD structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -37,244 +39,423 @@
   }
   </script>
 
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230f1c38'/%3E%3Ctext x='50' y='54' font-family='Arial,sans-serif' font-size='46' font-weight='700' fill='%2393c5fd' text-anchor='middle' dominant-baseline='middle'%3EKL%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='6' fill='%23f5f2ec'/%3E%3Ctext x='50' y='55' font-family='Georgia,serif' font-size='44' font-weight='700' fill='%23007a6e' text-anchor='middle' dominant-baseline='middle'%3EKL%3C/text%3E%3C/svg%3E">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:wght@400;500&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap"
+    rel="stylesheet">
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #f5f2ec;
+      --surface: #ffffff;
+      --border: #e0dbd2;
+      --border2: #ccc6bc;
+      --accent: #007a6e;
+      --accent-l: #e6f5f3;
+      --gold: #b07d2a;
+      --text: #111820;
+      --text2: #3a4a58;
+      --text3: #6a7f90;
+      --mono: 'JetBrains Mono', 'Courier New', monospace;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --body: 'Crimson Pro', Georgia, serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: #f8fafc;
-      color: #0f172a;
+      font-family: var(--body);
+      background: var(--bg);
+      color: var(--text);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
 
-    /* ── Header ── */
+    /* === Header === */
     header {
-      background: #0f1c38;
-      padding: 4rem 2rem;
-      border-bottom: 1px solid #1e3a6e;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 4rem 3.5rem 3.5rem;
+      position: relative;
+      overflow: hidden;
     }
 
-    .hero {
-      max-width: 860px;
+    /* Spectrum decoration - very faint warm tint on light bg */
+    .spectrum-bg {
+      position: absolute;
+      bottom: 0;
+      right: -10px;
+      width: 55%;
+      height: 110%;
+      pointer-events: none;
+      opacity: 0.06;
+    }
+
+    .hero-inner {
+      max-width: 920px;
       margin: 0 auto;
-      display: flex;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
       align-items: center;
-      gap: 2.5rem;
     }
 
-    .avatar {
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Profile photo */
+    .hero-photo {
       flex-shrink: 0;
-      width: 88px;
-      height: 88px;
+      width: 160px;
+      height: 160px;
       border-radius: 50%;
-      background: #162447;
-      border: 2px solid #2d5fa8;
+      object-fit: cover;
+      object-position: center top;
+      border: 3px solid var(--border);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10), 0 2px 8px rgba(0, 0, 0, 0.06);
+      animation: fadeUp 0.7s 0.1s ease both;
+    }
+
+    /* Eyebrow */
+    .eyebrow {
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      color: #93c5fd;
-    }
-
-    .hero-info { flex: 1; }
-
-    .hero-info h1 {
-      font-size: clamp(1.5rem, 3.5vw, 2.1rem);
-      font-weight: 700;
-      color: #f1f5f9;
-      letter-spacing: -0.3px;
-      line-height: 1.1;
-    }
-
-    .hero-role {
-      margin-top: 0.35rem;
-      font-size: 0.9rem;
+      gap: 0.75rem;
+      font-family: var(--mono);
+      font-size: 0.78rem;
       font-weight: 400;
-      color: #64748b;
-      letter-spacing: 0.04em;
+      color: var(--accent);
+      letter-spacing: 0.2em;
       text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.7s ease both;
     }
 
-    .hero-desc {
-      margin-top: 0.6rem;
-      font-size: 0.875rem;
-      font-weight: 300;
-      color: #94a3b8;
+    .eyebrow-line {
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    /* Name */
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(3.5rem, 7vw, 6rem);
+      font-weight: 600;
+      color: var(--text);
+      line-height: 0.93;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.1rem;
+      animation: fadeUp 0.7s 0.1s ease both;
+    }
+
+    .hero-name .given {
+      display: block;
+    }
+
+    .hero-name .family {
+      display: block;
       font-style: italic;
-      line-height: 1.5;
+      color: var(--gold);
     }
 
-    .interests {
-      margin-top: 1rem;
+    /* Role */
+    .hero-role {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--text2);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.7s 0.2s ease both;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      animation: pulse 2.4s ease infinite;
+    }
+
+    /* Tagline */
+    .hero-tagline {
+      font-size: 1.1rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text2);
+      max-width: 460px;
+      line-height: 1.7;
+      margin-bottom: 1.75rem;
+      animation: fadeUp 0.7s 0.28s ease both;
+    }
+
+    /* Tags */
+    .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.45rem;
+      gap: 0.4rem;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.7s 0.35s ease both;
     }
 
     .tag {
-      font-size: 0.75rem;
-      font-weight: 500;
-      padding: 0.28rem 0.75rem;
-      border-radius: 4px;
-      background: #1e3a6e;
-      color: #93c5fd;
-      letter-spacing: 0.02em;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      font-weight: 400;
+      color: var(--text3);
+      padding: 0.32rem 0.85rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      background: var(--surface);
+      letter-spacing: 0.05em;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+      cursor: default;
     }
 
-    .links {
-      margin-top: 1.25rem;
+    .tag:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: var(--accent-l);
+    }
+
+    /* Links */
+    .hero-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
+      gap: 0.45rem;
+      animation: fadeUp 0.7s 0.42s ease both;
     }
 
-    .links a {
+    .hero-link {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      padding: 0.45rem 1rem;
-      border-radius: 6px;
-      background: transparent;
-      color: #93c5fd;
-      text-decoration: none;
+      gap: 0.45rem;
+      font-family: var(--mono);
       font-size: 0.82rem;
-      font-weight: 500;
-      border: 1px solid #2d5fa8;
-      transition: background 0.2s, border-color 0.2s, color 0.2s;
+      font-weight: 400;
+      color: var(--text2);
+      text-decoration: none;
+      padding: 0.55rem 1.15rem;
+      border: 1px solid var(--border2);
+      border-radius: 2px;
+      background: var(--surface);
+      letter-spacing: 0.07em;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
     }
 
-    .links a:hover {
-      background: #1e3a6e;
-      border-color: #4d8fda;
-      color: #bfdbfe;
+    .hero-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: var(--accent-l);
     }
 
-    .links a svg {
-      width: 14px;
-      height: 14px;
-      flex-shrink: 0;
-      stroke: currentColor;
+    .hero-link svg {
+      width: 12px;
+      height: 12px;
       fill: none;
+      stroke: currentColor;
       stroke-width: 2;
       stroke-linecap: round;
       stroke-linejoin: round;
+      flex-shrink: 0;
     }
 
-    /* ── Main ── */
+    /* === Main === */
     main {
       flex: 1;
-      max-width: 860px;
+      max-width: 920px;
       width: 100%;
       margin: 0 auto;
-      padding: 3rem 2rem 2.5rem;
+      padding: 3.5rem 3.5rem 3rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.7s 0.5s ease both;
+    }
+
+    .section-group {
+      margin-bottom: 3rem;
+    }
+
+    .section-group:last-child {
+      margin-bottom: 0;
     }
 
     .section-label {
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: #94a3b8;
-      margin-bottom: 1.25rem;
+      color: var(--text3);
+      white-space: nowrap;
     }
 
-    /* ── Cards ── */
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--border) 0%, transparent 100%);
+    }
+
+    /* === Cards === */
     .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.25rem;
     }
 
+    .cards.cols-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
     .card {
-      background: white;
-      border-radius: 10px;
-      border: 1px solid #e2e8f0;
-      padding: 1.75rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2rem 1.75rem;
       display: flex;
       flex-direction: column;
-      transition: box-shadow 0.2s ease, transform 0.2s ease;
+      position: relative;
+      transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+      overflow: hidden;
+    }
+
+    .card:nth-child(1) {
+      animation: fadeUp 0.7s 0.55s ease both;
+    }
+
+    .card:nth-child(2) {
+      animation: fadeUp 0.7s 0.65s ease both;
+    }
+
+    .card:nth-child(3) {
+      animation: fadeUp 0.7s 0.75s ease both;
+    }
+
+    .card:nth-child(4) {
+      animation: fadeUp 0.7s 0.85s ease both;
+    }
+
+    /* Top accent bar */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s ease;
     }
 
     .card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(15, 28, 56, 0.08);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+      border-color: var(--border2);
     }
 
-    .card-header {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      margin-bottom: 0.85rem;
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card-num {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text3);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
     }
 
     .card-icon {
-      flex-shrink: 0;
-      width: 38px;
-      height: 38px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 28px;
+      height: 28px;
+      margin-bottom: 1rem;
     }
 
     .card-icon svg {
-      width: 20px;
-      height: 20px;
+      width: 28px;
+      height: 28px;
       fill: none;
-      stroke-width: 1.75;
+      stroke: var(--accent);
+      stroke-width: 1.5;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
 
-    .card-icon.blue  { background: #eff6ff; }
-    .card-icon.blue svg  { stroke: #2563eb; }
-    .card-icon.teal  { background: #f0fdfa; }
-    .card-icon.teal svg  { stroke: #0d9488; }
-    .card-icon.red   { background: #fff1f2; }
-    .card-icon.red svg   { stroke: #dc2626; }
-    .card-icon.purple { background: #f5f3ff; }
-    .card-icon.purple svg { stroke: #7c3aed; }
-
     .card h2 {
-      font-size: 0.975rem;
+      font-family: var(--serif);
+      font-size: 1.45rem;
       font-weight: 600;
-      line-height: 1.35;
-      color: #0f172a;
-      align-self: center;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 0.85rem;
+      letter-spacing: -0.01em;
     }
 
     .card p {
-      font-size: 0.85rem;
-      line-height: 1.7;
-      color: #64748b;
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.8;
+      color: var(--text2);
       flex: 1;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
     }
 
     .card-link {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: #2563eb;
+      gap: 0.4rem;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--accent);
       text-decoration: none;
-      transition: gap 0.15s;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      align-self: flex-start;
+      transition: gap 0.2s;
     }
 
-    .card-link:hover { gap: 0.6rem; }
+    .card-link:hover {
+      gap: 0.75rem;
+    }
 
     .card-link svg {
-      width: 13px;
-      height: 13px;
+      width: 11px;
+      height: 11px;
       fill: none;
       stroke: currentColor;
       stroke-width: 2.5;
@@ -282,121 +463,336 @@
       stroke-linejoin: round;
     }
 
-    /* ── Footer ── */
+    /* === Footer === */
     footer {
-      text-align: center;
-      padding: 1.5rem 2rem;
-      font-size: 0.78rem;
-      color: #94a3b8;
-      border-top: 1px solid #e2e8f0;
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 3.5rem;
+      background: var(--bg);
     }
 
-    /* ── Responsive ── */
-    @media (max-width: 580px) {
-      .hero { flex-direction: column; text-align: center; gap: 1.5rem; }
-      .interests, .links { justify-content: center; }
+    .footer-inner {
+      max-width: 920px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-copy {
+      font-family: var(--mono);
+      font-size: 0.62rem;
+      font-weight: 300;
+      color: var(--text3);
+      letter-spacing: 0.08em;
+    }
+
+    .footer-sig {
+      font-family: var(--serif);
+      font-size: 0.9rem;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--text3);
+    }
+
+    /* === Animations === */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.35;
+      }
+    }
+
+    /* === Responsive === */
+    @media (max-width: 760px) {
+
+      header,
+      main,
+      footer {
+        padding-left: 1.75rem;
+        padding-right: 1.75rem;
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .hero-photo {
+        width: 120px;
+        height: 120px;
+        order: -1;
+      }
+
+      .cards,
+      .cards.cols-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-name {
+        font-size: clamp(2.6rem, 10vw, 3.5rem);
+      }
+
+      .spectrum-bg {
+        display: none;
+      }
+    }
+
+    @media (max-width: 440px) {
+      .hero-links {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <header>
-    <div class="hero">
-      <div class="avatar">KL</div>
-      <div class="hero-info">
-        <h1>Kittinun Leetanaporn</h1>
-        <p class="hero-role">Doctor &amp; Researcher</p>
-        <p class="hero-desc">Personal website for my work in proteomics, mass spectrometry, bioinformatics, and teaching.</p>
-        <div class="interests">
-          <span class="tag">Proteomics</span>
-          <span class="tag">Mass Spectrometry</span>
-          <span class="tag">Bioinformatics</span>
-          <span class="tag">R Programming</span>
+    <!-- Decorative mass-spec spectrum, warm tone for light bg -->
+    <svg class="spectrum-bg" viewBox="0 0 760 380" preserveAspectRatio="xMaxYMax meet"
+      xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <line x1="20" y1="360" x2="740" y2="360" stroke="#007a6e" stroke-width="0.6" />
+      <line x1="55" y1="360" x2="55" y2="320" stroke="#007a6e" stroke-width="0.8" />
+      <line x1="90" y1="360" x2="90" y2="295" stroke="#007a6e" stroke-width="0.8" />
+      <line x1="118" y1="360" x2="118" y2="336" stroke="#007a6e" stroke-width="0.6" />
+      <line x1="148" y1="360" x2="148" y2="200" stroke="#007a6e" stroke-width="1.4" />
+      <line x1="170" y1="360" x2="170" y2="345" stroke="#007a6e" stroke-width="0.5" />
+      <line x1="198" y1="360" x2="198" y2="310" stroke="#007a6e" stroke-width="0.8" />
+      <line x1="228" y1="360" x2="228" y2="120" stroke="#007a6e" stroke-width="2" />
+      <line x1="250" y1="360" x2="250" y2="350" stroke="#007a6e" stroke-width="0.4" />
+      <line x1="278" y1="360" x2="278" y2="280" stroke="#007a6e" stroke-width="1" />
+      <line x1="310" y1="360" x2="310" y2="340" stroke="#007a6e" stroke-width="0.5" />
+      <line x1="342" y1="360" x2="342" y2="70" stroke="#007a6e" stroke-width="2.5" />
+      <line x1="368" y1="360" x2="368" y2="352" stroke="#007a6e" stroke-width="0.4" />
+      <line x1="396" y1="360" x2="396" y2="220" stroke="#007a6e" stroke-width="1.2" />
+      <line x1="424" y1="360" x2="424" y2="345" stroke="#007a6e" stroke-width="0.5" />
+      <line x1="455" y1="360" x2="455" y2="165" stroke="#007a6e" stroke-width="1.6" />
+      <line x1="484" y1="360" x2="484" y2="350" stroke="#007a6e" stroke-width="0.4" />
+      <line x1="516" y1="360" x2="516" y2="300" stroke="#007a6e" stroke-width="0.9" />
+      <line x1="548" y1="360" x2="548" y2="40" stroke="#007a6e" stroke-width="3" />
+      <line x1="572" y1="360" x2="572" y2="348" stroke="#007a6e" stroke-width="0.4" />
+      <line x1="600" y1="360" x2="600" y2="260" stroke="#007a6e" stroke-width="1.1" />
+      <line x1="630" y1="360" x2="630" y2="330" stroke="#007a6e" stroke-width="0.6" />
+      <line x1="660" y1="360" x2="660" y2="185" stroke="#007a6e" stroke-width="1.4" />
+      <line x1="692" y1="360" x2="692" y2="310" stroke="#007a6e" stroke-width="0.8" />
+      <line x1="720" y1="360" x2="720" y2="345" stroke="#007a6e" stroke-width="0.5" />
+      <text x="228" y="374" font-family="monospace" font-size="9" fill="#007a6e" text-anchor="middle">1847.3</text>
+      <text x="342" y="374" font-family="monospace" font-size="9" fill="#007a6e" text-anchor="middle">2734.8</text>
+      <text x="548" y="374" font-family="monospace" font-size="9" fill="#007a6e" text-anchor="middle">4412.1</text>
+    </svg>
+
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="eyebrow">
+          <span class="eyebrow-line"></span>
+          KL &nbsp;&middot;&nbsp; 2026
         </div>
-        <div class="links">
-          <a href="https://github.com/LKittinun" target="_blank">
-            <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+
+        <h1 class="hero-name">
+          <span class="given">Kittinun</span>
+          <span class="family">Leetanaporn</span>
+        </h1>
+
+        <p class="hero-role">
+          <span class="status-dot"></span>
+          Doctor &amp; Researcher
+        </p>
+
+        <p class="hero-tagline">
+          Proteomics, mass spectrometry, and bioinformatics.<br>
+          Building tools and sharing knowledge.
+        </p>
+
+        <div class="tags">
+          <span class="tag">proteomics</span>
+          <span class="tag">mass-spectrometry</span>
+          <span class="tag">bioinformatics</span>
+          <span class="tag">R</span>
+        </div>
+
+        <div class="hero-links">
+          <a class="hero-link" href="https://github.com/LKittinun" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+            </svg>
             GitHub
           </a>
-          <a href="https://scholar.google.com/citations?user=pzrXr54AAAAJ&amp;hl=en" target="_blank">
-            <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          <a class="hero-link" href="https://scholar.google.com/citations?user=pzrXr54AAAAJ&hl=en" target="_blank"
+            rel="noopener">
+            <svg viewBox="0 0 24 24">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+            </svg>
             Google Scholar
           </a>
-          <a href="https://www.scopus.com/authid/detail.uri?authorId=57194532818" target="_blank">
-            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <a class="hero-link" href="https://www.scopus.com/authid/detail.uri?authorId=57194532818" target="_blank"
+            rel="noopener">
+            <svg viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
             Scopus
           </a>
         </div>
       </div>
+
+      <img class="hero-photo" src="profile.png" alt="Kittinun Leetanaporn">
     </div>
   </header>
 
   <main>
-    <p class="section-label">Featured content</p>
-    <section class="cards">
 
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon blue">
-            <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+    <!-- Educational -->
+    <div class="section-group">
+      <div class="section-header">
+        <span class="section-label">Education &amp; Writing</span>
+        <div class="section-rule"></div>
+      </div>
+      <div class="cards">
+
+        <div class="card">
+          <div class="card-num">01 &nbsp;/&nbsp; Textbook</div>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+            </svg>
           </div>
           <h2>A Gentle Introduction to R for Biologists</h2>
+          <p>19 chapters covering R fundamentals, data manipulation, visualization, statistical testing, and
+            bioinformatics tools (Bioconductor, limma, edgeR). Written in Thai for biologists with no prior programming
+            experience.</p>
+          <a class="card-link" href="R_intro/docs/index.html">
+            Read the book
+            <svg viewBox="0 0 24 24">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
         </div>
-        <p>19 chapters covering R fundamentals, data manipulation, visualization, statistical testing, and bioinformatics tools (Bioconductor, limma, edgeR). Written in Thai for biologists with no prior programming experience.</p>
-        <a class="card-link" href="R_intro/docs/index.html">
-          Read the book
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </div>
 
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon teal">
-            <svg viewBox="0 0 24 24"><path d="M9 3h6"/><path d="M10 3v6l-4 9a1 1 0 0 0 .9 1.45h10.2A1 1 0 0 0 18 18l-4-9V3"/></svg>
+        <div class="card">
+          <div class="card-num">02 &nbsp;/&nbsp; Blog</div>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M9 3h6" />
+              <path d="M10 3v6l-4 9a1 1 0 0 0 .9 1.45h10.2A1 1 0 0 0 18 18l-4-9V3" />
+            </svg>
           </div>
           <h2>Proteomics Blog</h2>
+          <p>Ideas, experiences, and knowledge in proteomics - whatever I&rsquo;m exploring, working on, or feel
+            like writing about.</p>
+          <a class="card-link" href="Proteomics-blog/blog/index.html">
+            Visit the blog
+            <svg viewBox="0 0 24 24">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
         </div>
-        <p>Ideas, experiences, and knowledge in proteomics — whatever I'm exploring, working on, or feel like writing about.</p>
-        <a class="card-link" href="Proteomics-blog/blog/index.html">
-          Visit the blog
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </div>
 
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon red">
-            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+    </div>
+
+    <!-- Tools -->
+    <div class="section-group">
+      <div class="section-header">
+        <span class="section-label">Tools &amp; Software</span>
+        <div class="section-rule"></div>
+      </div>
+      <div class="cards cols-3">
+
+        <div class="card">
+          <div class="card-num">01 &nbsp;/&nbsp; Scripts</div>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke-width="1.5" />
+              <path d="M8 12h8M12 8v8" stroke-width="1.5" />
+            </svg>
           </div>
-          <h2>HALP Survival Model</h2>
+          <h2>ms-utility</h2>
+          <p>A collection of scripts for managing mass spectrometry data processing and analysis workflows.</p>
+          <a class="card-link" href="https://github.com/LKittinun/ms-utility" target="_blank" rel="noopener">
+            View on GitHub
+            <svg viewBox="0 0 24 24">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
         </div>
-        <p>Interactive survival prediction tool for advanced cervical cancer. Estimates recurrence-free and overall survival based on HALP score, stage, treatment modality, and histology using pre-trained Cox models.</p>
-        <a class="card-link" href="https://lkittinun.shinyapps.io/halp_survival_model/" target="_blank">
-          Open the app
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </div>
 
-      <div class="card">
-        <div class="card-header">
-          <div class="card-icon purple">
-            <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        <div class="card">
+          <div class="card-num">02 &nbsp;/&nbsp; R Package</div>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="M9 9h4a2 2 0 0 1 0 4H9v4" />
+              <line x1="9" y1="9" x2="9" y2="17" />
+            </svg>
           </div>
           <h2>MSOmicsDesign</h2>
+          <p>R package for designing mass spectrometry-based omics experiments. Supports plate design with block
+            randomization and QC placement, and DIA window design with fixed, variable, or gas-phase fractionation
+            isolation windows.</p>
+          <a class="card-link" href="https://github.com/LKittinun/MSOmicsDesign" target="_blank" rel="noopener">
+            View on GitHub
+            <svg viewBox="0 0 24 24">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
         </div>
-        <p>R package for designing mass spectrometry-based omics experiments. Supports plate design with block randomization and QC placement, and DIA window design with fixed, variable, or gas-phase fractionation isolation windows.</p>
-        <a class="card-link" href="https://github.com/LKittinun/MSOmicsDesign" target="_blank">
-          View on GitHub
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
-      </div>
 
-    </section>
+        <div class="card">
+          <div class="card-num">03 &nbsp;/&nbsp; Clinical Tool</div>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg>
+          </div>
+          <h2>HALP Survival Model</h2>
+          <p>Interactive survival prediction tool for advanced cervical cancer. Estimates recurrence-free and overall
+            survival based on HALP score, stage, treatment modality, and histology using pre-trained Cox models.</p>
+          <a class="card-link" href="https://lkittinun.shinyapps.io/halp_survival_model/" target="_blank"
+            rel="noopener">
+            Open the app
+            <svg viewBox="0 0 24 24">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+
   </main>
 
   <footer>
-    &copy; 2026 Kittinun Leetanaporn. All rights reserved.
+    <div class="footer-inner">
+      <span class="footer-copy">&copy; 2026 Kittinun Leetanaporn. All rights reserved.</span>
+      <span class="footer-sig">KL</span>
+    </div>
   </footer>
 
 </body>
+
 </html>
