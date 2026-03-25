@@ -107,12 +107,12 @@
     }
 
     .hero-inner {
-      max-width: 920px;
+      max-width: 1200px;
       margin: 0 auto;
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: 1fr 1fr;
       gap: 3rem;
       align-items: center;
     }
@@ -120,13 +120,16 @@
     .hero-left {
       display: flex;
       flex-direction: column;
+      margin-left: auto;
+      padding-right: 3rem;
+      max-width: 560px;
     }
 
     /* Profile photo */
     .hero-photo {
       flex-shrink: 0;
-      width: 160px;
-      height: 160px;
+      width: 210px;
+      height: 210px;
       border-radius: 50%;
       object-fit: cover;
       object-position: center top;
@@ -288,7 +291,7 @@
     /* === Main === */
     main {
       flex: 1;
-      max-width: 920px;
+      max-width: 1200px;
       width: 100%;
       margin: 0 auto;
       padding: 3.5rem 3.5rem 3rem;
@@ -471,7 +474,7 @@
     }
 
     .footer-inner {
-      max-width: 920px;
+      max-width: 1200px;
       margin: 0 auto;
       display: flex;
       align-items: center;
@@ -654,7 +657,8 @@
         </div>
       </div>
 
-      <img class="hero-photo" src="profile.png" alt="Kittinun Leetanaporn">
+      <div style="display:flex;justify-content:center;align-items:center;"><img class="hero-photo" src="profile.png"
+          alt="Kittinun Leetanaporn"></div>
     </div>
   </header>
 
