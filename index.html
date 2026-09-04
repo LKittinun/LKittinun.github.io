@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark">
   <title>Kittinun Leetanaporn - Doctor &amp; Researcher in Proteomics &amp; Bioinformatics</title>
   <meta name="description"
     content="Personal website of Kittinun Leetanaporn, MD - researcher in proteomics, mass spectrometry, and bioinformatics. Includes an R programming textbook in Thai, a proteomics blog, and a clinical survival prediction tool.">
@@ -30,23 +31,23 @@
     "@type": "Person",
     "name": "Kittinun Leetanaporn",
     "url": "https://lkittinun.github.io/",
+    "email": "mailto:kittinun.l@psu.ac.th",
     "jobTitle": "Doctor and Researcher",
     "knowsAbout": ["Proteomics", "Mass Spectrometry", "Bioinformatics", "R Programming", "Survival Analysis"],
     "sameAs": [
       "https://scholar.google.com/citations?user=pzrXr54AAAAJ&hl=en",
-      "https://www.scopus.com/authid/detail.uri?authorId=57194532818"
+      "https://www.scopus.com/authid/detail.uri?authorId=57194532818",
+      "https://github.com/LKittinun"
     ]
   }
   </script>
 
   <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='6' fill='%23f5f2ec'/%3E%3Ctext x='50' y='55' font-family='Georgia,serif' font-size='44' font-weight='700' fill='%23007a6e' text-anchor='middle' dominant-baseline='middle'%3EKL%3C/text%3E%3C/svg%3E">
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23101010'/%3E%3Ctext x='50' y='56' font-family='IBM Plex Sans,system-ui,sans-serif' font-size='44' font-weight='600' fill='%23f7f7f7' text-anchor='middle' dominant-baseline='middle'%3EKL%3C/text%3E%3C/svg%3E">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:wght@400;500&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     *,
@@ -58,19 +59,40 @@
     }
 
     :root {
-      --bg: #f5f2ec;
-      --surface: #ffffff;
-      --border: #e0dbd2;
-      --border2: #ccc6bc;
-      --accent: #007a6e;
-      --accent-l: #e6f5f3;
-      --gold: #b07d2a;
-      --text: #111820;
-      --text2: #3a4a58;
-      --text3: #6a7f90;
-      --mono: 'JetBrains Mono', 'Courier New', monospace;
-      --serif: 'Cormorant Garamond', Georgia, serif;
-      --body: 'Crimson Pro', Georgia, serif;
+      --bg: #f7f7f7;
+      --card: #eeeeee;
+      --card-border: #eeeeee;
+      --border: #e4e4e4;
+      --tag-border: #d6d6d6;
+      --btn-border: #cfcfcf;
+      --text: #101010;
+      --text2: #444444;
+      --text3: #6b6b6b;
+      --solid: #101010;
+      --solid-fg: #f7f7f7;
+      --hl: #1e40af;
+      --hl-l: rgba(30, 64, 175, 0.14);
+      --r: #198ce7;
+      --powershell: #012456;
+      --font: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #101010;
+        --card: #151515;
+        --card-border: rgba(255, 255, 255, 0.18);
+        --border: rgba(255, 255, 255, 0.18);
+        --tag-border: rgba(255, 255, 255, 0.18);
+        --btn-border: rgba(255, 255, 255, 0.18);
+        --text: #f7f7f7;
+        --text2: #c8c8c8;
+        --text3: #9a9a9a;
+        --solid: #f7f7f7;
+        --solid-fg: #101010;
+        --hl: #8fb0ff;
+        --hl-l: rgba(143, 176, 255, 0.18);
+      }
     }
 
     html {
@@ -78,430 +100,467 @@
     }
 
     body {
-      font-family: var(--body);
+      font-family: var(--font);
       background: var(--bg);
       color: var(--text);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* === Header === */
-    header {
-      background: var(--bg);
-      border-bottom: 1px solid var(--border);
-      padding: 4rem 3.5rem 3.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Spectrum decoration - very faint warm tint on light bg */
-    .spectrum-bg {
-      position: absolute;
-      bottom: 0;
-      right: -10px;
-      width: 55%;
-      height: 110%;
-      pointer-events: none;
-      opacity: 0.06;
-    }
-
-    .hero-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .hero-left {
-      display: flex;
-      flex-direction: column;
-      margin-left: auto;
-      padding-right: 3rem;
-      max-width: 560px;
-    }
-
-    /* Profile photo */
-    .hero-photo {
-      flex-shrink: 0;
-      width: 210px;
-      height: 210px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center top;
-      border: 3px solid var(--border);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10), 0 2px 8px rgba(0, 0, 0, 0.06);
-      animation: fadeUp 0.7s 0.1s ease both;
-    }
-
-    /* Eyebrow */
-    .eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      font-weight: 400;
-      color: var(--accent);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      animation: fadeUp 0.7s ease both;
-    }
-
-    .eyebrow-line {
-      width: 24px;
-      height: 1px;
-      background: var(--accent);
-    }
-
-    /* Name */
-    .hero-name {
-      font-family: var(--serif);
-      font-size: clamp(3.5rem, 7vw, 6rem);
-      font-weight: 600;
-      color: var(--text);
-      line-height: 0.93;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.1rem;
-      animation: fadeUp 0.7s 0.1s ease both;
-    }
-
-    .hero-name .given {
-      display: block;
-    }
-
-    .hero-name .family {
-      display: block;
-      font-style: italic;
-      color: var(--gold);
-    }
-
-    /* Role */
-    .hero-role {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-family: var(--mono);
-      font-size: 0.85rem;
-      font-weight: 400;
-      color: var(--text2);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      animation: fadeUp 0.7s 0.2s ease both;
-    }
-
-    .status-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      flex-shrink: 0;
-      animation: pulse 2.4s ease infinite;
-    }
-
-    /* Tagline */
-    .hero-tagline {
-      font-size: 1.1rem;
-      font-weight: 400;
-      font-style: italic;
-      color: var(--text2);
-      max-width: 460px;
-      line-height: 1.7;
-      margin-bottom: 1.75rem;
-      animation: fadeUp 0.7s 0.28s ease both;
-    }
-
-    /* Tags */
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 2rem;
-      animation: fadeUp 0.7s 0.35s ease both;
-    }
-
-    .tag {
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      font-weight: 400;
-      color: var(--text3);
-      padding: 0.32rem 0.85rem;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      background: var(--surface);
-      letter-spacing: 0.05em;
-      transition: color 0.2s, border-color 0.2s, background 0.2s;
-      cursor: default;
-    }
-
-    .tag:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-      background: var(--accent-l);
-    }
-
-    /* Links */
-    .hero-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      animation: fadeUp 0.7s 0.42s ease both;
-    }
-
-    .hero-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      font-family: var(--mono);
-      font-size: 0.82rem;
-      font-weight: 400;
-      color: var(--text2);
+    a {
+      color: inherit;
       text-decoration: none;
-      padding: 0.55rem 1.15rem;
-      border: 1px solid var(--border2);
-      border-radius: 2px;
-      background: var(--surface);
-      letter-spacing: 0.07em;
-      transition: color 0.2s, border-color 0.2s, background 0.2s;
     }
 
-    .hero-link:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-      background: var(--accent-l);
-    }
-
-    .hero-link svg {
-      width: 12px;
-      height: 12px;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      flex-shrink: 0;
-    }
-
-    /* === Main === */
-    main {
-      flex: 1;
-      max-width: 1200px;
+    .wrap {
+      max-width: 1280px;
       width: 100%;
       margin: 0 auto;
-      padding: 3.5rem 3.5rem 3rem;
     }
 
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      animation: fadeUp 0.7s 0.5s ease both;
-    }
-
-    .section-group {
-      margin-bottom: 3rem;
-    }
-
-    .section-group:last-child {
-      margin-bottom: 0;
-    }
-
-    .section-label {
-      font-family: var(--mono);
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--text3);
-      white-space: nowrap;
-    }
-
-    .section-rule {
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, var(--border) 0%, transparent 100%);
-    }
-
-    /* === Cards === */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
-    }
-
-    .cards.cols-3 {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 2rem 1.75rem;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
-      overflow: hidden;
-    }
-
-    .card:nth-child(1) {
-      animation: fadeUp 0.7s 0.55s ease both;
-    }
-
-    .card:nth-child(2) {
-      animation: fadeUp 0.7s 0.65s ease both;
-    }
-
-    .card:nth-child(3) {
-      animation: fadeUp 0.7s 0.75s ease both;
-    }
-
-    .card:nth-child(4) {
-      animation: fadeUp 0.7s 0.85s ease both;
-    }
-
-    /* Top accent bar */
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.35s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
-      border-color: var(--border2);
-    }
-
-    .card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .card-num {
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      font-weight: 500;
-      color: var(--text3);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      margin-bottom: 1.25rem;
-    }
-
-    .card-icon {
-      width: 28px;
-      height: 28px;
-      margin-bottom: 1rem;
-    }
-
-    .card-icon svg {
-      width: 28px;
-      height: 28px;
-      fill: none;
-      stroke: var(--accent);
-      stroke-width: 1.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .card h2 {
-      font-family: var(--serif);
-      font-size: 1.45rem;
-      font-weight: 600;
-      color: var(--text);
-      line-height: 1.3;
-      margin-bottom: 0.85rem;
-      letter-spacing: -0.01em;
-    }
-
-    .card p {
-      font-size: 1rem;
-      font-weight: 400;
-      line-height: 1.8;
-      color: var(--text2);
-      flex: 1;
-      margin-bottom: 1.5rem;
-    }
-
-    .card-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--accent);
-      text-decoration: none;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      align-self: flex-start;
-      transition: gap 0.2s;
-    }
-
-    .card-link:hover {
-      gap: 0.75rem;
-    }
-
-    .card-link svg {
-      width: 11px;
-      height: 11px;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 2.5;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    /* === Footer === */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 1.5rem 3.5rem;
-      background: var(--bg);
-    }
-
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
+    /* === Nav === */
+    .nav {
+      height: 64px;
+      padding: 0 80px;
+      border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
-    .footer-copy {
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      font-weight: 300;
-      color: var(--text3);
-      letter-spacing: 0.08em;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 15px;
+      font-weight: 600;
     }
 
-    .footer-sig {
-      font-family: var(--serif);
-      font-size: 0.9rem;
+    .mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: var(--solid);
+      color: var(--solid-fg);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      font-size: 14px;
       font-weight: 500;
-      font-style: italic;
+      color: var(--text2);
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    /* === Hero === */
+    .hero {
+      padding: 88px 80px 80px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 64px;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      max-width: 680px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text2);
+      letter-spacing: 0.02em;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--hl);
+      flex-shrink: 0;
+    }
+
+    .hero h1 {
+      font-size: 60px;
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -0.025em;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 .hl {
+      color: var(--hl);
+    }
+
+    .intro {
+      font-size: 20px;
+      line-height: 1.55;
+      color: var(--text2);
+      max-width: 600px;
+      margin-bottom: 16px;
+    }
+
+    .find {
+      font-size: 17px;
+      line-height: 1.5;
+      color: var(--text2);
+      margin-bottom: 8px;
+    }
+
+    .find-list {
+      padding-left: 24px;
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--text2);
+      margin-bottom: 36px;
+    }
+
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 44px;
+      padding: 0 18px;
+      border-radius: 8px;
+      border: 1px solid var(--btn-border);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text);
+      transition: border-color 0.15s, background 0.15s, color 0.15s, opacity 0.15s;
+    }
+
+    .btn:hover {
+      border-color: var(--text3);
+    }
+
+    .btn-primary {
+      background: var(--solid);
+      color: var(--solid-fg);
+      border-color: var(--solid);
+      padding: 0 20px;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.85;
+      border-color: var(--solid);
+    }
+
+    .btn svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .pills {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .pill {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text2);
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+    }
+
+    .hero-photo {
+      width: 260px;
+      height: 320px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 16px;
+      flex-shrink: 0;
+      animation: fadeUp 0.6s 0.1s ease both;
+    }
+
+    /* === Sections === */
+    .section {
+      padding: 72px 80px 24px;
+    }
+
+    .section + .section {
+      padding-top: 56px;
+      padding-bottom: 80px;
+    }
+
+    .label {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text3);
+      margin-bottom: 10px;
+    }
+
+    .section h2 {
+      font-size: 30px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .cards.cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .tile {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--hl-l);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tile svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--hl);
+    }
+
+    .tag {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text3);
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--tag-border);
+    }
+
+    .card h3 {
+      margin-top: 6px;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+
+    .card p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text2);
+      flex-grow: 1;
+    }
+
+    .langs {
+      display: flex;
+      gap: 12px;
+    }
+
+    .lang {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      font-size: 13px;
+      color: var(--text2);
+    }
+
+    .lang i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      margin-top: 4px;
+      align-self: flex-start;
+      transition: gap 0.15s;
+    }
+
+    .card-link:hover {
+      gap: 10px;
+    }
+
+    .card-link svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* === Contact === */
+    .contact {
+      padding: 0 80px 80px;
+    }
+
+    .contact-inner {
+      border-top: 1px solid var(--border);
+      padding-top: 64px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact h2 {
+      font-size: 30px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    .contact p {
+      font-size: 17px;
+      line-height: 1.55;
+      color: var(--text2);
+      max-width: 600px;
+      margin-bottom: 24px;
+    }
+
+    .email {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
+      font-weight: 500;
+      align-self: flex-start;
+      margin-bottom: 20px;
+      overflow-wrap: anywhere;
+    }
+
+    .email:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .email svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--hl);
+      flex-shrink: 0;
+    }
+
+    /* === Footer === */
+    footer {
+      margin-top: auto;
+      border-top: 1px solid var(--border);
+      padding: 28px 80px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .copy {
+      font-size: 13px;
       color: var(--text3);
     }
 
-    /* === Animations === */
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text2);
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    svg.icon {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .tile svg.icon {
+      stroke-width: 1.75;
+    }
+
+    .card-link svg.icon {
+      stroke-width: 2.25;
+    }
+
     @keyframes fadeUp {
       from {
         opacity: 0;
-        transform: translateY(16px);
+        transform: translateY(12px);
       }
 
       to {
@@ -510,56 +569,206 @@
       }
     }
 
-    @keyframes pulse {
-
-      0%,
-      100% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: 0.35;
+    @media (prefers-reduced-motion: reduce) {
+      .hero-left,
+      .hero-photo {
+        animation: none;
       }
     }
 
     /* === Responsive === */
-    @media (max-width: 760px) {
-
-      header,
-      main,
+    @media (max-width: 1024px) {
+      .nav,
+      .hero,
+      .section,
+      .contact,
       footer {
-        padding-left: 1.75rem;
-        padding-right: 1.75rem;
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .cards.cols-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        height: 56px;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .nav-links {
+        gap: 20px;
+      }
+
+      .brand span:last-child {
+        display: none;
+      }
+
+      .hero,
+      .section,
+      .contact,
+      footer {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .hero {
+        padding-top: 40px;
+        padding-bottom: 40px;
       }
 
       .hero-inner {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
       }
 
       .hero-photo {
-        width: 120px;
-        height: 120px;
         order: -1;
+        width: 96px;
+        height: 96px;
+        border-radius: 14px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+        line-height: 1.1;
+        margin-bottom: 14px;
+      }
+
+      .intro {
+        font-size: 17px;
+        margin-bottom: 14px;
+      }
+
+      .find,
+      .find-list {
+        font-size: 16px;
+      }
+
+      .find-list {
+        padding-left: 22px;
+        margin-bottom: 24px;
+      }
+
+      .actions {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        width: 100%;
+      }
+
+      .actions .btn-primary {
+        grid-column: 1 / -1;
+        justify-content: center;
+        height: 48px;
+        margin-bottom: 2px;
+      }
+
+      .actions .btn {
+        justify-content: center;
+        padding: 0 8px;
+        font-size: 14px;
+      }
+
+      .actions .btn svg {
+        display: none;
+      }
+
+      .actions .btn-primary svg {
+        display: inline-block;
+      }
+
+      .btn .long {
+        display: none;
+      }
+
+      .pills {
+        margin-top: 28px;
+      }
+
+      .section {
+        padding-top: 48px;
+        padding-bottom: 16px;
+      }
+
+      .section + .section {
+        padding-top: 40px;
+        padding-bottom: 56px;
+      }
+
+      .label {
+        font-size: 12px;
+        margin-bottom: 8px;
+      }
+
+      .section h2,
+      .contact h2 {
+        font-size: 26px;
+        margin-bottom: 20px;
       }
 
       .cards,
       .cards.cols-3 {
         grid-template-columns: 1fr;
+        gap: 16px;
       }
 
-      .hero-name {
-        font-size: clamp(2.6rem, 10vw, 3.5rem);
+      .card {
+        padding: 24px;
+        gap: 12px;
       }
 
-      .spectrum-bg {
-        display: none;
+      .card h3 {
+        font-size: 19px;
       }
-    }
 
-    @media (max-width: 440px) {
-      .hero-links {
-        flex-direction: column;
+      .card-link {
+        min-height: 44px;
+      }
+
+      .contact {
+        padding-bottom: 56px;
+      }
+
+      .contact-inner {
+        padding-top: 40px;
+      }
+
+      .contact p {
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+
+      .email {
+        font-size: 17px;
+        min-height: 44px;
+        margin-bottom: 12px;
+      }
+
+      .contact .actions {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      footer {
+        padding: 24px;
+      }
+
+      .footer-inner {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      .footer-links {
+        gap: 20px;
       }
     }
   </style>
@@ -567,233 +776,210 @@
 
 <body>
 
-  <header>
-    <!-- Decorative mass-spec spectrum, warm tone for light bg -->
-    <svg class="spectrum-bg" viewBox="0 0 760 380" preserveAspectRatio="xMaxYMax meet"
-      xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <line x1="20" y1="360" x2="740" y2="360" stroke="#007a6e" stroke-width="0.6" />
-      <line x1="55" y1="360" x2="55" y2="320" stroke="#007a6e" stroke-width="0.8" />
-      <line x1="90" y1="360" x2="90" y2="295" stroke="#007a6e" stroke-width="0.8" />
-      <line x1="118" y1="360" x2="118" y2="336" stroke="#007a6e" stroke-width="0.6" />
-      <line x1="148" y1="360" x2="148" y2="200" stroke="#007a6e" stroke-width="1.4" />
-      <line x1="170" y1="360" x2="170" y2="345" stroke="#007a6e" stroke-width="0.5" />
-      <line x1="198" y1="360" x2="198" y2="310" stroke="#007a6e" stroke-width="0.8" />
-      <line x1="228" y1="360" x2="228" y2="120" stroke="#007a6e" stroke-width="2" />
-      <line x1="250" y1="360" x2="250" y2="350" stroke="#007a6e" stroke-width="0.4" />
-      <line x1="278" y1="360" x2="278" y2="280" stroke="#007a6e" stroke-width="1" />
-      <line x1="310" y1="360" x2="310" y2="340" stroke="#007a6e" stroke-width="0.5" />
-      <line x1="342" y1="360" x2="342" y2="70" stroke="#007a6e" stroke-width="2.5" />
-      <line x1="368" y1="360" x2="368" y2="352" stroke="#007a6e" stroke-width="0.4" />
-      <line x1="396" y1="360" x2="396" y2="220" stroke="#007a6e" stroke-width="1.2" />
-      <line x1="424" y1="360" x2="424" y2="345" stroke="#007a6e" stroke-width="0.5" />
-      <line x1="455" y1="360" x2="455" y2="165" stroke="#007a6e" stroke-width="1.6" />
-      <line x1="484" y1="360" x2="484" y2="350" stroke="#007a6e" stroke-width="0.4" />
-      <line x1="516" y1="360" x2="516" y2="300" stroke="#007a6e" stroke-width="0.9" />
-      <line x1="548" y1="360" x2="548" y2="40" stroke="#007a6e" stroke-width="3" />
-      <line x1="572" y1="360" x2="572" y2="348" stroke="#007a6e" stroke-width="0.4" />
-      <line x1="600" y1="360" x2="600" y2="260" stroke="#007a6e" stroke-width="1.1" />
-      <line x1="630" y1="360" x2="630" y2="330" stroke="#007a6e" stroke-width="0.6" />
-      <line x1="660" y1="360" x2="660" y2="185" stroke="#007a6e" stroke-width="1.4" />
-      <line x1="692" y1="360" x2="692" y2="310" stroke="#007a6e" stroke-width="0.8" />
-      <line x1="720" y1="360" x2="720" y2="345" stroke="#007a6e" stroke-width="0.5" />
-      <text x="228" y="374" font-family="monospace" font-size="9" fill="#007a6e" text-anchor="middle">1847.3</text>
-      <text x="342" y="374" font-family="monospace" font-size="9" fill="#007a6e" text-anchor="middle">2734.8</text>
-      <text x="548" y="374" font-family="monospace" font-size="9" fill="#007a6e" text-anchor="middle">4412.1</text>
-    </svg>
+  <header class="nav">
+    <a class="brand" href="./">
+      <span class="mark">KL</span>
+      <span>Kittinun Leetanaporn</span>
+    </a>
+    <nav class="nav-links">
+      <a href="R_intro/docs/index.html">Textbook</a>
+      <a href="Proteomics-blog/blog/index.html">Blog</a>
+      <a href="#tools">Tools</a>
+    </nav>
+  </header>
 
-    <div class="hero-inner">
+  <section class="hero">
+    <div class="wrap hero-inner">
       <div class="hero-left">
-        <div class="eyebrow">
-          <span class="eyebrow-line"></span>
-          KL &nbsp;&middot;&nbsp; 2026
-        </div>
+        <p class="eyebrow"><span class="dot"></span>Doctor &amp; Researcher</p>
 
-        <h1 class="hero-name">
-          <span class="given">Kittinun</span>
-          <span class="family">Leetanaporn</span>
-        </h1>
+        <h1><span class="hl">Kittinun</span> Leetanaporn</h1>
 
-        <p class="hero-role">
-          <span class="status-dot"></span>
-          Doctor &amp; Researcher
-        </p>
+        <p class="intro">I am a doctor and researcher working in proteomics, mass spectrometry, and bioinformatics. I
+          build tools for MS-based omics experiments and write about what I learn along the way.</p>
 
-        <p class="hero-tagline">
-          Proteomics, mass spectrometry, and bioinformatics.<br>
-          Building tools and sharing knowledge.
-        </p>
+        <p class="find">Things you will find here:</p>
+        <ul class="find-list">
+          <li>An R programming textbook for biologists, written in Thai</li>
+          <li>A blog on proteomics and data analysis</li>
+          <li>Open-source tools for designing and processing mass spectrometry experiments</li>
+        </ul>
 
-        <div class="tags">
-          <span class="tag">proteomics</span>
-          <span class="tag">mass-spectrometry</span>
-          <span class="tag">bioinformatics</span>
-          <span class="tag">R</span>
-        </div>
-
-        <div class="hero-links">
-          <a class="hero-link" href="https://github.com/LKittinun" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-            </svg>
+        <div class="actions">
+          <a class="btn btn-primary" href="R_intro/docs/index.html">Read the R textbook
+            <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+          </a>
+          <a class="btn" href="https://github.com/LKittinun" target="_blank" rel="noopener">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" /></svg>
             GitHub
           </a>
-          <a class="hero-link" href="https://scholar.google.com/citations?user=pzrXr54AAAAJ&hl=en" target="_blank"
-            rel="noopener">
-            <svg viewBox="0 0 24 24">
-              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
-              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
-            </svg>
-            Google Scholar
+          <a class="btn" href="https://scholar.google.com/citations?user=pzrXr54AAAAJ&hl=en" target="_blank" rel="noopener">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c3 3 9 3 12 0v-5" /></svg>
+            <span><span class="long">Google </span>Scholar</span>
           </a>
-          <a class="hero-link" href="https://www.scopus.com/authid/detail.uri?authorId=57194532818" target="_blank"
-            rel="noopener">
-            <svg viewBox="0 0 24 24">
-              <circle cx="11" cy="11" r="8" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
+          <a class="btn" href="https://www.scopus.com/authid/detail.uri?authorId=57194532818" target="_blank" rel="noopener">
+            <svg class="icon" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3" /><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5" /><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3" /></svg>
+            Scopus
+          </a>
+        </div>
+
+        <div class="pills">
+          <span class="pill">Proteomics</span>
+          <span class="pill">Mass spectrometry</span>
+          <span class="pill">Bioinformatics</span>
+          <span class="pill">R</span>
+        </div>
+      </div>
+
+      <img class="hero-photo" src="profile-web.jpg" alt="Kittinun Leetanaporn" width="260" height="320">
+    </div>
+  </section>
+
+  <main>
+
+    <section class="section" id="writing">
+      <div class="wrap">
+        <p class="label">Education &amp; Writing</p>
+        <h2>Learn and read</h2>
+        <div class="cards">
+
+          <article class="card">
+            <div class="card-top">
+              <span class="tile">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></svg>
+              </span>
+              <span class="tag">Textbook · Thai</span>
+            </div>
+            <h3>A Gentle Introduction to R for Biologists</h3>
+            <p>19 chapters covering R fundamentals, data manipulation, visualization, statistical testing, and
+              bioinformatics tools (Bioconductor, limma, edgeR). Written in Thai for biologists with no prior programming
+              experience.</p>
+            <a class="card-link" href="R_intro/docs/index.html">Read the book
+              <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+            </a>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <span class="tile">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M9 3h6" /><path d="M10 3v6l-4 9a1 1 0 0 0 .9 1.45h10.2A1 1 0 0 0 18 18l-4-9V3" /></svg>
+              </span>
+              <span class="tag">Blog</span>
+            </div>
+            <h3>Proteomics Blog</h3>
+            <p>Ideas, experiences, and knowledge in proteomics. Whatever I&rsquo;m exploring, working on, or feel like
+              writing about.</p>
+            <a class="card-link" href="Proteomics-blog/blog/index.html">Visit the blog
+              <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tools">
+      <div class="wrap">
+        <p class="label">Tools &amp; Software</p>
+        <h2>Open-source tools</h2>
+        <div class="cards cols-3">
+
+          <article class="card">
+            <div class="card-top">
+              <span class="tile">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5" /><line x1="12" y1="19" x2="20" y2="19" /></svg>
+              </span>
+              <span class="tag">Scripts</span>
+            </div>
+            <h3>ms-utility</h3>
+            <p>A collection of scripts for managing mass spectrometry data processing and analysis workflows.</p>
+            <div class="langs">
+              <span class="lang"><i style="background: var(--powershell)"></i>PowerShell</span>
+              <span class="lang"><i style="background: var(--r)"></i>R</span>
+            </div>
+            <a class="card-link" href="https://github.com/LKittinun/ms-utility" target="_blank" rel="noopener">View on GitHub
+              <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+            </a>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <span class="tile">
+                <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3" /><path d="M9 17V7h4a3 3 0 0 1 0 6H9" /><path d="M13 13l3 4" /></svg>
+              </span>
+              <span class="tag">R package</span>
+            </div>
+            <h3>MSOmicsDesign</h3>
+            <p>R package for designing mass spectrometry-based omics experiments. Plate design with block randomization
+              and QC placement, and DIA window design with fixed, variable, or gas-phase fractionation isolation windows.</p>
+            <div class="langs">
+              <span class="lang"><i style="background: var(--r)"></i>R</span>
+            </div>
+            <a class="card-link" href="https://github.com/LKittinun/MSOmicsDesign" target="_blank" rel="noopener">View on GitHub
+              <svg class="icon" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+            </a>
+          </article>
+
+          <article class="card">
+            <div class="card-top">
+              <span class="tile">
+                <svg class="icon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" /></svg>
+              </span>
+              <span class="tag">Clinical tool</span>
+            </div>
+            <h3>HALP Survival Model</h3>
+            <p>Interactive survival prediction tool for advanced cervical cancer. Estimates recurrence-free and overall
+              survival from HALP score, stage, treatment modality, and histology using pre-trained Cox models.</p>
+            <div class="langs">
+              <span class="lang"><i style="background: var(--r)"></i>R</span>
+              <span class="lang"><i style="background: var(--hl)"></i>Shiny app</span>
+            </div>
+            <a class="card-link" href="https://lkittinun.shinyapps.io/halp_survival_model/" target="_blank" rel="noopener">Open the app
+              <svg class="icon" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
+            </a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="wrap contact-inner">
+        <p class="label">Contact</p>
+        <h2>Get in touch</h2>
+        <p>Questions about proteomics, R, or any of the tools here are always welcome.</p>
+        <a class="email" href="mailto:kittinun.l@psu.ac.th">
+          <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
+          kittinun.l@psu.ac.th
+        </a>
+        <div class="actions">
+          <a class="btn" href="https://github.com/LKittinun" target="_blank" rel="noopener">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" /></svg>
+            GitHub
+          </a>
+          <a class="btn" href="https://scholar.google.com/citations?user=pzrXr54AAAAJ&hl=en" target="_blank" rel="noopener">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z" /><path d="M6 12v5c3 3 9 3 12 0v-5" /></svg>
+            <span><span class="long">Google </span>Scholar</span>
+          </a>
+          <a class="btn" href="https://www.scopus.com/authid/detail.uri?authorId=57194532818" target="_blank" rel="noopener">
+            <svg class="icon" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3" /><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5" /><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3" /></svg>
             Scopus
           </a>
         </div>
       </div>
-
-      <div style="display:flex;justify-content:center;align-items:center;"><img class="hero-photo" src="profile.png"
-          alt="Kittinun Leetanaporn"></div>
-    </div>
-  </header>
-
-  <main>
-
-    <!-- Educational -->
-    <div class="section-group">
-      <div class="section-header">
-        <span class="section-label">Education &amp; Writing</span>
-        <div class="section-rule"></div>
-      </div>
-      <div class="cards">
-
-        <div class="card">
-          <div class="card-num">01 &nbsp;/&nbsp; Textbook</div>
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-            </svg>
-          </div>
-          <h2>A Gentle Introduction to R for Biologists</h2>
-          <p>19 chapters covering R fundamentals, data manipulation, visualization, statistical testing, and
-            bioinformatics tools (Bioconductor, limma, edgeR). Written in Thai for biologists with no prior programming
-            experience.</p>
-          <a class="card-link" href="R_intro/docs/index.html">
-            Read the book
-            <svg viewBox="0 0 24 24">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </a>
-        </div>
-
-        <div class="card">
-          <div class="card-num">02 &nbsp;/&nbsp; Blog</div>
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M9 3h6" />
-              <path d="M10 3v6l-4 9a1 1 0 0 0 .9 1.45h10.2A1 1 0 0 0 18 18l-4-9V3" />
-            </svg>
-          </div>
-          <h2>Proteomics Blog</h2>
-          <p>Ideas, experiences, and knowledge in proteomics - whatever I&rsquo;m exploring, working on, or feel
-            like writing about.</p>
-          <a class="card-link" href="Proteomics-blog/blog/index.html">
-            Visit the blog
-            <svg viewBox="0 0 24 24">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </a>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Tools -->
-    <div class="section-group">
-      <div class="section-header">
-        <span class="section-label">Tools &amp; Software</span>
-        <div class="section-rule"></div>
-      </div>
-      <div class="cards cols-3">
-
-        <div class="card">
-          <div class="card-num">01 &nbsp;/&nbsp; Scripts</div>
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke-width="1.5" />
-              <path d="M8 12h8M12 8v8" stroke-width="1.5" />
-            </svg>
-          </div>
-          <h2>ms-utility</h2>
-          <p>A collection of scripts for managing mass spectrometry data processing and analysis workflows.</p>
-          <a class="card-link" href="https://github.com/LKittinun/ms-utility" target="_blank" rel="noopener">
-            View on GitHub
-            <svg viewBox="0 0 24 24">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </a>
-        </div>
-
-        <div class="card">
-          <div class="card-num">02 &nbsp;/&nbsp; R Package</div>
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24">
-              <rect x="3" y="3" width="18" height="18" rx="2" />
-              <path d="M9 9h4a2 2 0 0 1 0 4H9v4" />
-              <line x1="9" y1="9" x2="9" y2="17" />
-            </svg>
-          </div>
-          <h2>MSOmicsDesign</h2>
-          <p>R package for designing mass spectrometry-based omics experiments. Supports plate design with block
-            randomization and QC placement, and DIA window design with fixed, variable, or gas-phase fractionation
-            isolation windows.</p>
-          <a class="card-link" href="https://github.com/LKittinun/MSOmicsDesign" target="_blank" rel="noopener">
-            View on GitHub
-            <svg viewBox="0 0 24 24">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </a>
-        </div>
-
-        <div class="card">
-          <div class="card-num">03 &nbsp;/&nbsp; Clinical Tool</div>
-          <div class="card-icon">
-            <svg viewBox="0 0 24 24">
-              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-            </svg>
-          </div>
-          <h2>HALP Survival Model</h2>
-          <p>Interactive survival prediction tool for advanced cervical cancer. Estimates recurrence-free and overall
-            survival based on HALP score, stage, treatment modality, and histology using pre-trained Cox models.</p>
-          <a class="card-link" href="https://lkittinun.shinyapps.io/halp_survival_model/" target="_blank"
-            rel="noopener">
-            Open the app
-            <svg viewBox="0 0 24 24">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </a>
-        </div>
-
-      </div>
-    </div>
+    </section>
 
   </main>
 
   <footer>
-    <div class="footer-inner">
-      <span class="footer-copy">&copy; 2026 Kittinun Leetanaporn. All rights reserved.</span>
-      <span class="footer-sig">KL</span>
+    <div class="wrap footer-inner">
+      <span class="copy">&copy; 2026 Kittinun Leetanaporn. All rights reserved.</span>
+      <nav class="footer-links">
+        <a href="mailto:kittinun.l@psu.ac.th">kittinun.l@psu.ac.th</a>
+        <a href="https://github.com/LKittinun" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://scholar.google.com/citations?user=pzrXr54AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://www.scopus.com/authid/detail.uri?authorId=57194532818" target="_blank" rel="noopener">Scopus</a>
+      </nav>
     </div>
   </footer>
 
